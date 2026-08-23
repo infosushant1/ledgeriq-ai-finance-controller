@@ -180,22 +180,3 @@ git status
 
 Make sure `.env`, `.venv`, `node_modules`, the local SQLite database and generated CSVs are not staged.
 
-## Judge pitch
-
-> LedgerIQ closes the reconciliation loop across orders, payment gateways and bank settlements. Money-critical matching is deterministic and explainable; AI is deliberately used where language reasoning adds value. Every batch reports throughput, match rate and labeled validation metrics, while every exception carries financial impact, priority, recommended action and an audit trail. The system does not hide uncertainty — it routes unresolved records to human review.
-
-## What to show in a 3-minute demo
-
-**0:00–0:20** — Explain the finance problem.
-
-**0:20–0:40** — Generate 200+ synthetic records.
-
-**0:40–1:10** — Run reconciliation and show throughput, match rate and amount at risk.
-
-**1:10–1:50** — Open an amount mismatch and show evidence + recommended action.
-
-**1:50–2:20** — Ask Finance Copilot for amount at risk and most common exception.
-
-**2:20–2:45** — AI explain + approve one exception.
-
-**2:45–3:00** — Show audit trail and explain why deterministic matching + AI reasoning is safer than an LLM-only reconciler.
