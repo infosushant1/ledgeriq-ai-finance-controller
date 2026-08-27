@@ -1,6 +1,6 @@
 # LedgerIQ — AI Finance Controller
 
-A buildathon-ready multi-source reconciliation controller for finance operations.
+AI-powered finance operations controller for reconciliation, exception management, and finance intelligence.
 
 ## What it does
 
@@ -37,6 +37,26 @@ It is intentionally hybrid:
 11. Audit trail for reconciliation, exceptions, AI explanations, copilot queries and human review.
 12. Production frontend served by FastAPI after `npm run build`.
 
+## 🚀 Live Demo
+
+### 👉 [Open LedgerIQ Live Demo](https://ledgeriq-ai-finance-controller-demo.onrender.com)
+
+**No installation required. Open the link and start testing.**
+
+> Note: The Render free instance may take up to ~50 seconds to wake after inactivity.
+
+### Recommended demo flow
+
+1. Open the Live Demo
+2. Click **Demo Data**
+3. Click **Run Reconciliation**
+4. Review reconciliation metrics
+5. Open **Exceptions**
+6. Inspect an exception
+7. Ask **Finance Copilot** questions
+8. Review the **Audit Trail**
+9. Upload custom CSV data and run another reconciliation
+ 
 ## Current verified package versions
 
 As of August 2026 this project pins FastAPI 0.141.1, pandas 3.0.5, SQLAlchemy 2.0.52, Uvicorn 0.52.3, React 19.2.8, Vite 8.2.2 and `@vitejs/plugin-react` 6.1.0.
