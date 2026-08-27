@@ -207,9 +207,9 @@ Make sure `.env`, `.venv`, `node_modules`, the local SQLite database and generat
 LedgerIQ supports custom CSV datasets.
 
 The minimum required files are:
-orders.csv
-payment_gateway.csv
-bank_transactions.csv
+orders.csv, 
+payment_gateway.csv ,
+bank_transactions.csv ,
 
 1. orders.csv
 Required columns:
