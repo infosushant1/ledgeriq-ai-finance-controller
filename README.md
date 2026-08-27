@@ -2,6 +2,8 @@
 
 AI-powered finance operations controller for reconciliation, exception management, and finance intelligence.
 
+### 👉 [Open LedgerIQ Live Demo](https://ledgeriq-ai-finance-controller-demo.onrender.com)
+
 ## What it does
 
 LedgerIQ closes one finance-ops loop:
