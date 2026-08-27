@@ -202,3 +202,210 @@ git status
 
 Make sure `.env`, `.venv`, `node_modules`, the local SQLite database and generated CSVs are not staged.
 
+📥 Using Your Own Custom Data
+
+LedgerIQ supports custom CSV datasets.
+
+The minimum required files are:
+orders.csv
+payment_gateway.csv
+bank_transactions.csv
+
+1. orders.csv
+Required columns:
+
+order_id
+date
+amount
+description
+
+Example:
+
+order_id,date,amount,description
+ORD-1001,2026-08-20,1499,Mobile order
+ORD-1002,2026-08-20,2499,Laptop accessories
+ORD-1003,2026-08-21,999,Keyboard order
+
+2. payment_gateway.csv
+Required columns:
+
+gateway_id
+order_id
+date
+amount
+description
+
+Example:
+
+gateway_id,order_id,date,amount,description
+PAY-1001,ORD-1001,2026-08-20,1499,Mobile payment
+PAY-1002,ORD-1002,2026-08-20,2499,Laptop payment
+PAY-1003,ORD-1003,2026-08-21,999,Keyboard payment
+
+3. bank_transactions.csv
+Required columns:
+
+bank_id
+gateway_id
+date
+amount
+description
+
+Example:
+
+bank_id,gateway_id,date,amount,description
+BANK-1001,PAY-1001,2026-08-21,1499,Settlement
+BANK-1002,PAY-1002,2026-08-21,2499,Settlement
+BANK-1003,PAY-1003,2026-08-21,999,Settlement
+
+4. Optional ground_truth.csv
+Ground truth is required if you want to calculate validation metrics such as:
+
+Precision
+Recall
+F1
+
+The exact schema should match the version of the metrics service included in the repository.
+
+If ground truth is unavailable:
+
+Precision = N/A
+Recall = N/A
+F1 = N/A
+
+Do not interpret this as the reconciliation engine having zero accuracy.
+
+📤 Upload Custom CSVs
+
+Start LedgerIQ.
+
+Open:
+
+http://localhost:5173
+
+Click:
+
+Upload CSVs
+
+Select:
+
+orders.csv
+payment_gateway.csv
+bank_transactions.csv
+
+Then click:
+
+Run reconciliation
+
+LedgerIQ will process the uploaded dataset.
+
+🔎 What to Inspect After Reconciliation
+
+After processing, check:
+
+Dashboard
+Records Processed
+Matched / Probable
+Needs Review
+Unresolved
+Amount at Risk
+Throughput
+Quality Metrics
+
+Check:
+
+Match Rate
+Precision
+Recall
+F1
+Processing Time
+Validation Set
+
+Remember:
+
+Precision/Recall/F1 require ground-truth labels.
+
+
+🚨 Exception Queue
+
+The exception queue shows records requiring attention.
+
+Typical examples:
+
+Missing Payment
+Missing Settlement
+Amount Mismatch
+Gateway Only
+Bank Only
+Probable Match Review
+Unresolved
+💰 Amount at Risk
+
+The amount-at-risk dashboard allows finance users to understand the financial impact of unresolved records.
+
+Example:
+
+₹36,058
+
+This allows the user to prioritize exceptions based on monetary impact.
+
+🤖 Finance Copilot
+
+Example questions:
+
+How many unresolved records are there?
+
+What is the amount at risk?
+
+Which exception is most common?
+
+How many transactions are matched?
+
+How many records need review?
+
+What is the current reconciliation status?
+
+The Copilot is intended to summarize the current reconciliation state rather than act as an unrestricted financial advisor.
+
+🧾 Audit Trail
+
+The audit trail records important workflow events.
+
+Typical events:
+
+Dataset upload
+Reconciliation start
+Reconciliation completion
+Exception review
+Exception approval
+Exception rejection
+AI explanation request
+
+This provides traceability for finance operations.
+
+🧠 Why Deterministic Logic + AI?
+
+LedgerIQ deliberately separates:
+
+Financial decisioning
+
+from
+
+AI explanation
+
+The reconciliation engine is deterministic and evidence-driven.
+
+AI is used where it adds value:
+
+Raw exception
+      ↓
+Structured evidence
+      ↓
+Deterministic classification
+      ↓
+AI explanation
+      ↓
+Human decision
+
+This avoids making an LLM the sole authority for money-critical reconciliation decisions.
+
