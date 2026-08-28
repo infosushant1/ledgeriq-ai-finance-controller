@@ -6,7 +6,7 @@ AI-powered finance operations controller for reconciliation, exception managemen
 
 ## 📄 Project Presentation
 
-[📥 View Project Presentation](./docs/Project-Presentation.pdf)
+[📥 View Project Presentation](./docs/iq3.pdf)
 
 ## What it does
 
